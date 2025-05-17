@@ -1,11 +1,9 @@
 import { SuiClient, getFullnodeUrl } from '@mysten/sui.js/client';
 import { Ed25519Keypair } from '@mysten/sui.js/keypairs/ed25519';
 import { TransactionBlock } from '@mysten/sui.js/transactions';
-import { fromB64, fromHEX } from '@mysten/sui.js/utils';
 import fs from 'fs';
 import { CONFIG, CONTRACTS } from './config.js';
 import chalk from 'chalk';
-import https from 'https';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Version information
