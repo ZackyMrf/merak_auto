@@ -14,6 +14,7 @@ Merak is a powerful automation tool designed for the Sui blockchain that handles
   ██║ ╚═╝ ██║███████╗██║  ██║██║  ██║██║  ██╗    ██████╔╝╚██████╔╝   ██║   
   ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝    ╚═════╝  ╚═════╝    ╚═╝   
 ```
+https://merak-testnet.obelisk.build/
 
 ## Features
 
