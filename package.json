@@ -1,0 +1,33 @@
+{
+    "name": "merak",
+    "version": "1.2.0",
+    "description": "Bot for automating operations on Sui blockchain (wrapping, swapping, liquidity provision)",
+    "type": "module",
+    "main": "bot.js",
+    "scripts": {
+      "start": "node bot.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "sui",
+      "blockchain",
+      "defi",
+      "bot",
+      "swap",
+      "liquidity"
+    ],
+    "author": "",
+    "license": "",
+    "dependencies": {
+      "@mysten/sui.js": "^0.45.1",
+      "chalk": "^5.3.0",
+      "https-proxy-agent": "^7.0.2"
+    },
+    "engines": {
+      "node": ">=16.0.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/yourusername/merak.git"
+    }
+  }
