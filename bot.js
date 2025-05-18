@@ -566,9 +566,30 @@ async function processWallet(keypair, walletIndex, selectedProxy = null) {
         // Wait between transactions
         if (i < transactionSequence.length - 1) {
             if (success && CONFIG.DELAY_BETWEEN_TX_MS) {
-                // Use jitter for more natural timing
+                // Calculate actual delay with jitter
                 const useJitter = CONFIG.USE_JITTER || false;
-                await pause(CONFIG.DELAY_BETWEEN_TX_MS, useJitter);
+                let actualDelay = CONFIG.DELAY_BETWEEN_TX_MS;
+                
+                if (useJitter) {
+                    // Add random jitter of ±20% to avoid pattern detection
+                    const jitterFactor = 0.8 + (Math.random() * 0.4); // 0.8 to 1.2
+                    actualDelay = Math.floor(actualDelay * jitterFactor);
+                }
+                
+                const waitSeconds = Math.ceil(actualDelay / 1000);
+                TransactionLogger.info(`Waiting ${waitSeconds} seconds before next transaction...`);
+                
+                // Add countdown timer
+                const startTime = Date.now();
+                const endTime = startTime + actualDelay;
+                const interval = setInterval(() => {
+                    const remaining = Math.ceil((endTime - Date.now()) / 1000);
+                    process.stdout.write(`\r${' '.repeat(11)}${chalk.dim('└─')} ${chalk.cyan('⏱')} Waiting... ${remaining}s remaining`);
+                }, 1000);
+                
+                await pause(actualDelay);
+                clearInterval(interval);
+                process.stdout.write('\r' + ' '.repeat(80) + '\r'); // Clear the line
             }
         }
         
