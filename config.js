@@ -3,7 +3,8 @@ const CONFIG = {
     "NETWORK": 'testnet',           // 'testnet' or 'mainnet'
     "MAX_RETRIES": 3,               // Number of retry attempts for failed transactions
     "RETRY_DELAY_MS": 5000,         // Delay between retry attempts in milliseconds
-    "DELAY_BETWEEN_WALLETS_MS": 10000, // Delay between processing wallets in milliseconds
+    "DELAY_BETWEEN_TX_MS": 60000,     //delay tx
+    "DELAY_BETWEEN_WALLETS_MS": 60000, // Delay between processing wallets in milliseconds
     "CHECK_BALANCE_BEFORE_TRANSACTIONS": true, // Check if wallet has enough balance
     "TRACK_TRANSACTIONS": false,    // Save transaction data for analysis
     "USE_JITTER": true,             // Add random variation to delays
